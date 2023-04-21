@@ -1,0 +1,13 @@
+:root {
+    --grey-color: rgb(48, 54, 50);
+    --whitelight-color: rgb(226, 225, 225);
+    --greylight-color: rgb(100, 100, 100);
+    --greylight-hover-color: rgb(100, 100, 100, 0.7);
+    --green-color: rgb(2, 129, 87);
+    --green-hover-color: rgb(2, 129, 87, 0.7);
+    --green-placeholder-color: rgb(4, 175, 118);
+    --blue-color: rgb(40, 123, 179);
+    --blue-hover-color: rgb(40, 123, 179, 0.7);
+    --red-color: rgb(255, 80, 80);
+    --red-hover-color: rgb(255, 80, 80, 0.7);
+}
