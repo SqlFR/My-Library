@@ -110,11 +110,9 @@ footer {
     position: absolute;
     bottom: 90px;
     color: var(--grey-color);   
-}
-.book-unread {
     background-color: var(--red-color);
 }
-.book-unread:hover {
+.read-or-not:hover {
     background-color: var(--red-hover-color);
 }
 .book-read {

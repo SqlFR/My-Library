@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 const containForm = document.querySelector('.contain-form');
 
+
 let myLibrary = [];
 
 function Book(detailsOfBook) {
@@ -12,6 +13,7 @@ function Book(detailsOfBook) {
 
 function addBookToLibrary() {
     resetGrid();
+    
     // Pour chaque livre dans la librairie
     myLibrary.forEach(book => {
         // Création d'une carte
@@ -36,8 +38,26 @@ function addBookToLibrary() {
         spanPages.textContent = book.pages;
 
         // Init button remove & read
+        let buttonRead = document.createElement('button');
+        buttonRead.classList.add('btn', 'read-or-not');
+        buttonRead.textContent = 'Not Read';
+        card.appendChild(buttonRead);
         createRemoveBtn(card);
-        createReadBtn(card);
+        if(book.read) {
+            buttonRead.textContent = 'Read';
+            buttonRead.classList.toggle('book-read');
+        }
+
+        buttonRead.addEventListener('click', function() {
+            toggleRead(book);
+            attributeNumber();
+            buttonRead.classList.toggle('book-read');
+            if(buttonRead.classList[2] === 'book-read') {
+                buttonRead.textContent = 'Read';
+            } else {
+                buttonRead.textContent = 'Not Read';
+            }
+        })
     });
 }
 
@@ -50,6 +70,7 @@ const createRemoveBtn = (card) => {
 
     buttonRemove.addEventListener('click', function() {
         deleteBook(card);
+        attributeNumber();
     })
 }
 // Supprime un livre 
@@ -59,31 +80,19 @@ const deleteBook = (card) => {
 }
 
 // Création du bouton read card book
-const createReadBtn = (card) => {
-    let buttonRead = document.createElement('button');
-    buttonRead.classList.add('btn', 'read-or-not', 'book-unread');
-    buttonRead.textContent = 'Not Read';
-    card.appendChild(buttonRead);
-
-    buttonRead.addEventListener('click', function() {
-        if(buttonRead.classList[2] === 'book-unread') {
-            buttonRead.classList.remove('book-unread');
-            buttonRead.classList.add('book-read');
-            buttonRead.textContent = 'Read';
-            console.log(card.dataset.number)
-            myLibrary[+card.dataset.number].read = false;
-            console.log(myLibrary);
-        } else {
-            buttonRead.classList.add('book-unread');
-            buttonRead.classList.remove('book-read');
-            buttonRead.textContent = 'Not Read';
-            myLibrary[+card.dataset.number].read = true;
-            console.log(myLibrary);
-        }
-    })
-}
 
 // Changement read / unread
+const toggleRead = (card) => {
+    if(!card.read) {        
+        card.read = true;
+    } else {
+        card.read = false;
+    }
+}
+
+const checkRead = (buttonRead) => {
+    
+}
 
 // Réinitialise la grille des livres
 const resetGrid = () => {
