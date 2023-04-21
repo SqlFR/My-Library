@@ -90,10 +90,6 @@ const toggleRead = (card) => {
     }
 }
 
-const checkRead = (buttonRead) => {
-    
-}
-
 // Réinitialise la grille des livres
 const resetGrid = () => {
     return container.innerHTML = '';
