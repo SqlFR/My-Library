@@ -166,8 +166,3 @@ input::placeholder {
     color: var(--green-placeholder-color);
     opacity: 0.8;
 }
-
-/* Button d'ajout de livre depuis le form */
-.valid-form {
-    
-}
